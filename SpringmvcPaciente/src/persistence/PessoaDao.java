@@ -33,9 +33,9 @@ public class PessoaDao {
 	
 	public void update(Pessoa pessoa, Endereco endereco)throws Exception{
 		entityManager.getTransaction().begin();
-		entityManager.persist(pessoa);
+		entityManager.merge(pessoa);
 		endereco.setPessoa(pessoa);
-		entityManager.persist(endereco);
+		entityManager.merge(endereco);
 		entityManager.getTransaction().commit();
 	}
 	
